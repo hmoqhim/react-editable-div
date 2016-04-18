@@ -30,11 +30,12 @@ module.exports = React.createClass({
         this.lastHtml = html;
     },
     render: function () {
+    		
         return React.createElement('div', {
                 onInput: this.handleChange,
                 onBlur: this.handleChange,
-                ref='editor',
-                className={classnames(this.props.className)},
+                ref: 'editor',
+                className: this.props.className,
                 contentEditable: undefined === this.props.editable ? true: this.props.editable,
                 dangerouslySetInnerHTML: {__html: this.props.html}});
     }
