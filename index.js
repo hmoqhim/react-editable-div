@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 "use strict";
-var classnames = require('classnames');
+//var classnames = require('classnames');
 //import ReactDom from 'react-dom';
 
 if ("undefined" == typeof React)
