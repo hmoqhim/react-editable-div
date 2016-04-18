@@ -1,5 +1,7 @@
 /** @jsx React.DOM */
 "use strict";
+import classnames from 'classnames';
+//import ReactDom from 'react-dom';
 
 if ("undefined" == typeof React)
     var React = require('react');
@@ -16,11 +18,11 @@ module.exports = React.createClass({
     },
     componentDidUpdate: function () {
         if (this.props.html !== this.getDOMNode().innerHTML) {
-            this.getDOMNode().innerHTML = this.props.html;
+            this.refs.editor.innerHTML = this.props.html;
         }
     },
     handleChange: function (e) {
-        var html = this.getDOMNode().innerHTML;
+        var html = this.refs.editor.innerHTML;
         if (this.props.onChange && html !== this.lastHtml) {
             e.target = {value: html};
             this.props.onChange(e);
@@ -31,6 +33,8 @@ module.exports = React.createClass({
         return React.createElement('div', {
                 onInput: this.handleChange,
                 onBlur: this.handleChange,
+                ref='editor',
+                className={classnames(this.props.className)},
                 contentEditable: undefined === this.props.editable ? true: this.props.editable,
                 dangerouslySetInnerHTML: {__html: this.props.html}});
     }

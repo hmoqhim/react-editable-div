@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "classnames": "^2.2.3",
     "react": ">=0.12.x"
   },
   "repository": {
