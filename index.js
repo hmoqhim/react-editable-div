@@ -17,7 +17,7 @@ module.exports = React.createClass({
         return nextProps.editable !== this.props.editable;
     },
     componentDidUpdate: function () {
-        if (this.props.html !== this.getDOMNode().innerHTML) {
+        if (this.props.html !== this.refs.editor.innerHTML) {
             this.refs.editor.innerHTML = this.props.html;
         }
     },
